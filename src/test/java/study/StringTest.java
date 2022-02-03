@@ -1,8 +1,9 @@
 package study;
 
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
+
+import org.junit.jupiter.api.Test;
 
 public class StringTest {
     @Test
@@ -30,5 +31,18 @@ public class StringTest {
     void substring() {
         String substring = "(1,2)".substring(1, 4);
         assertThat(substring).isEqualTo("1,2");
+    }
+
+    @Test
+    void charAt() {
+        char c = "abc".charAt(0);
+        assertThat(c).isEqualTo('a');
+    }
+
+    @Test
+    void charAt_exception() {
+        assertThatCode(() -> "aa".charAt(2))
+            .isExactlyInstanceOf(StringIndexOutOfBoundsException.class)
+            .hasMessage("String index out of range: 2");
     }
 }
