@@ -25,4 +25,10 @@ public class StringTest {
         String[] splited = "1".split(",");
         assertThat(splited).containsExactly("1");
     }
+
+    @Test
+    void substring() {
+        String substring = "(1,2)".substring(1, 4);
+        assertThat(substring).isEqualTo("1,2");
+    }
 }
